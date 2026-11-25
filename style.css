@@ -1,0 +1,151 @@
+
+/* 기본 여백 제거, 테두리를 포함해 크기 계산 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: max(100vh, 1018px);
+  box-sizing: border-box;
+  padding-top: 100px;
+  margin: 0;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #fefff5;
+}
+
+/* 전체 영역 */
+#app {
+  position: relative;
+  width: 612px;
+  height: auto;
+  min-height: 902px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  margin: auto auto 40px;
+  border: 4px solid yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* 헤더 */
+#header {
+  width: 606px;
+  height: 120px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 4px solid pink;
+}
+
+#header .title {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow:
+    2px 2px 0 #aac,
+    -2px 2px 0 #aac,
+    2px -2px 0 #aac,
+    -2px -2px 0 #aac;
+  letter-spacing: 2px;
+}
+
+/* 집 외관 */
+#house {
+  width: 605px;
+  height: 898px;
+  flex-shrink: 0;
+  border: 4px solid #22cc44;
+  background-color: rgba(255, 255, 240, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* 다락방 */
+#attic {
+  box-sizing: border-box;
+  width: auto;
+  height: 210px;
+  flex-shrink: 0;
+  background-color: rgba(100, 160, 255, 0.20);
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#attic .label {
+  color: #2255cc;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* 콘텐츠 영역 */
+#house-body {
+  box-sizing: border-box;
+  width: auto;
+  height: 650px;
+  flex-shrink: 0;
+  border: 4px solid #bf42f5;
+  justify-content: flex-end;
+  overflow: hidden;
+  margin: 15px;
+}
+
+/* 방 4개의 고정 배치 */
+#room-grid {
+  width: 576px;
+  height: 508px;
+  display: grid;
+  grid-template-columns: 240px 240px;
+  grid-template-rows: 220px 220px;
+  gap: 10px;
+  padding: 14px;
+  justify-content: center;
+  align-content: center;
+}
+
+/* 개별 방 */
+.room {
+  width: 240px;
+  height: 220px;
+  background-color: rgba(255, 80, 80, 0.18);
+  border: 3px solid #cc2222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.room:hover {
+  background-color: rgba(255, 80, 80, 0.35);
+}
+
+.room .label {
+  color: #cc2222;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* 방 클릭 후 표시되는 iframe */
+#content-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+}
